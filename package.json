@@ -1,0 +1,42 @@
+{
+  "name": "pageobjecttest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "@types/puppeteer": "^7.0.4",
+    "jest": "^29.5.0",
+    "jest-puppeteer": "^8.0.6",
+    "mongoose": "^7.1.0",
+    "mongoose-global": "^1.0.1",
+    "puppeteer": "^19.11.1",
+    "ts-jest": "^29.0.0",
+    "ts-jest-puppeteer": "^0.0.5",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  },
+  "devDependencies": {
+    "@types/datejs": "^0.0.32",
+    "@types/ioredis": "^4.27.8",
+    "@types/jest": "^29.0.1",
+    "@types/node": "^18.11.15",
+    "eslint": "^8.11.0",
+    "eslint-plugin-jest": "^22.21.0"
+  },
+  "scripts": {
+    "test": "jest ./test/auto.test.ts --colors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AmirzhanovRenat/PageObjectTest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AmirzhanovRenat/PageObjectTest/issues"
+  },
+  "homepage": "https://github.com/AmirzhanovRenat/PageObjectTest#readme"
+}
