@@ -1,13 +1,13 @@
 import puppeteer from 'puppeteer';
 import { gClick } from './components/browser';
+import { gModalWindow } from './components/selectors';
 
 jest.setTimeout(60000);
 describe('test', () => {
   it('testTS', async () => {
     const browser = await puppeteer.launch({
-      // headless: false, // если ничего нет то придет тру, если что то хоть написано придет фалс
-      headless: false,
-      // product: 'chrome',
+      headless: false, // если ничего нет то придет тру, если что то хоть написано придет фалс
+      product: 'chrome',
       slowMo: 80,
       defaultViewport: { width: 1920, height: 1080 },
       args: [
@@ -21,33 +21,18 @@ describe('test', () => {
         '--start-maximized',
         '--ignore-certificate-errors',
       ],
-      timeout: 90000,
+
+      // timeout: 90000,
     });
     const page = await browser.newPage();
 
-    await page.goto('https://developer.chrome.com/');
+    await page.goto('https://www.dns-shop.ru/');
 
-    // Type into search box
-    await page.type('.search-box__input', 'automate beyond recorder ');
-
-    // Wait and click on first result
-    // const searchResultSelector = '.search-box__link';
-
-    gClick.ClickToSelector('.search-box__link');
-    // await page.waitForSelector(searchResultSelector);
-    // await page.click(searchResultSelector);
-
-    //Locate the full title with a unique string
-    const textSelector: any = await page.waitForSelector(
-      'text/Customize and automate'
-    );
-    const fullTitle = await textSelector.evaluate(
-      (el: { textContent: any }) => el.textContent
-    );
-
-    // Print the full title
-    console.log('The title of this blog post is "%s".', fullTitle);
-
+    await gModalWindow.AllModal(page);
+    await gModalWindow.ClickNouteBook(page);
+    await new Promise((r) => setTimeout(r, 5000));
+    await gModalWindow.ClickAccessories(page);
+    await new Promise((r) => setTimeout(r, 5000));
     await browser.close();
   });
 });
