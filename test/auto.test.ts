@@ -12,14 +12,14 @@ describe('test', () => {
     await new Promise((r) => setTimeout(r, 5000)); //timeout
     await gModalWindow.ClickAccessories(page); //choice all
     await new Promise((r) => setTimeout(r, 5000)); //timeout
-    await gUserName.func(); 
+    await gUserName.func();
     await gModalWindow.ClickNouteBook(page);
     await pk.ClickNouteBook(page); //choice catalog
   });
   it('catalog Page', async () => {
-    instanceCatalog.closeBanner(page); //close Banner advertising
-    instanceCatalog.filtersCatalof(page); //search filters laptop
-    instanceCatalog.buyLaptop(page); //buy to LapTop Aplle MacBook
-    gBrowser.browserClose(); //close Browser
+    await instanceCatalog.closeBanner(page); //close Banner advertising
+    await instanceCatalog.filtersCatalof(page); //search filters laptop
+    await instanceCatalog.buyLaptop(page); //buy to LapTop Aplle MacBook
+    await gBrowser.browserClose(); //close Browser
   });
 });
